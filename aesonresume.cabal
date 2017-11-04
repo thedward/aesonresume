@@ -1,0 +1,44 @@
+name:                aesonresume
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/thedward/aesonresume#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Thedward Blevins
+maintainer:          thedward@barsoom.net
+copyright:           2017 Thedward Blevins
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Lib
+  build-depends:       base >= 4.7 && < 5
+  default-language:    Haskell2010
+
+executable resume-render
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , aesonresume
+                     , aeson
+                     , stache
+                     , text
+  default-language:    Haskell2010
+
+test-suite aesonresume-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , aesonresume
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/thedward/aesonresume
